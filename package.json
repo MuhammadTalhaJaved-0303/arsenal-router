@@ -1,0 +1,23 @@
+{
+  "name": "arsenal-router",
+  "version": "1.0.0",
+  "description": "Smart prompt router for Claude Code — auto-classifies tasks as Vanilla (direct), Scout (research), or Arsenal (full power) to optimize token usage and maximize productivity",
+  "author": "Muhammad Talha Javed <talha@aivico.app>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MuhammadTalhaJaved-0303/arsenal-router"
+  },
+  "keywords": [
+    "claude-code",
+    "plugin",
+    "prompt-router",
+    "token-optimization",
+    "productivity"
+  ],
+  "claude-plugin": {
+    "version": 1,
+    "name": "arsenal-router",
+    "description": "Auto-classifies prompts → Vanilla / Scout / Arsenal mode to optimize token usage"
+  }
+}
