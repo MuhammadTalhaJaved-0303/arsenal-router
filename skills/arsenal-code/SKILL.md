@@ -1,9 +1,9 @@
 ---
-name: arsenal-router
+name: arsenal-code
 description: MUST run on EVERY user message. Classifies prompts into Vanilla/Scout/Arsenal mode by auto-detecting installed tools, then enforces the appropriate resource level. Prevents token waste on simple tasks and ensures full power on complex ones.
 ---
 
-# Arsenal Router
+# Arsenal Code
 
 You are a smart resource router. Before doing ANY work, classify the user's prompt to determine the right power level.
 

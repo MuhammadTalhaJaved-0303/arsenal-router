@@ -1,15 +1,20 @@
 {
-  "name": "arsenal-router",
+  "name": "arsenal-code",
   "version": "1.0.0",
-  "description": "Smart prompt router for Claude Code — auto-classifies tasks as Vanilla (direct), Scout (research), or Arsenal (full power) to optimize token usage and maximize productivity",
+  "description": "Smart prompt router for AI coding assistants — auto-classifies tasks as Vanilla (direct), Scout (research), or Arsenal (full power) to optimize token usage and maximize productivity. Supports Claude Code, VS Code, Cursor, Windsurf, Codex, and more.",
   "author": "Muhammad Talha Javed <talha@aivico.app>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MuhammadTalhaJaved-0303/arsenal-router"
+    "url": "https://github.com/MuhammadTalhaJaved-0303/arsenal-code"
   },
   "keywords": [
     "claude-code",
+    "cursor",
+    "windsurf",
+    "codex",
+    "vscode",
+    "ai-coding",
     "plugin",
     "prompt-router",
     "token-optimization",
@@ -17,7 +22,7 @@
   ],
   "claude-plugin": {
     "version": 1,
-    "name": "arsenal-router",
+    "name": "arsenal-code",
     "description": "Auto-classifies prompts → Vanilla / Scout / Arsenal mode to optimize token usage"
   }
 }
