@@ -39,6 +39,33 @@ Arsenal Code automatically classifies each prompt:
 
 ## Installation
 
+### Full setup on a new machine (macOS / Linux)
+
+Restores the entire toolkit — agents, commands, skills, rules, hooks, hook
+scripts, settings, plugins, and MCP servers — in one command:
+
+```bash
+git clone https://github.com/MuhammadTalhaJaved-0303/arsenal-code.git
+cd arsenal-code
+chmod +x install.sh && ./install.sh
+```
+
+Windows equivalent:
+
+```powershell
+git clone https://github.com/MuhammadTalhaJaved-0303/arsenal-code.git
+cd arsenal-code
+.\install.ps1
+```
+
+Existing config is backed up to `~/.claude/backups/arsenal-<timestamp>/` first.
+Use `--dry-run` to preview, `--link` to symlink instead of copy.
+
+No credentials are stored in this repo — MCP tokens are `${ENV_VAR}`
+placeholders you fill in from `config/.env.example`. See
+[docs/MIGRATION.md](docs/MIGRATION.md) for the full walkthrough, including
+re-authorizing claude.ai connectors and keeping two machines in sync.
+
 ### Claude Code (Plugin)
 
 ```bash
@@ -148,7 +175,27 @@ Arsenal Code's core routing logic is the same across all platforms. The `init` C
 - **35 slash commands** — `/plan`, `/tdd`, `/code-review`, `/verify`, etc.
 - **23 skill modules** — API design, frontend patterns, database migrations, etc.
 - **14 rule sets** — coding standards, security, testing, git workflow
-- **Hooks** — auto-format, security checks, quality gates
+- **Hooks + 37 hook scripts** — auto-format, typecheck, security checks, quality gates, session persistence, cost tracking
+- **Portable config** — `config/settings.template.json`, `config/plugins.json` (15 plugins across 2 marketplaces), `config/mcp-servers.json` (6 local MCP servers)
+
+### Repo layout
+
+| Path | Contents |
+|------|----------|
+| `agents/`, `commands/`, `skills/`, `rules/` | Mirrored into `~/.claude/` |
+| `hooks/`, `scripts/` | Hook definitions and the Node scripts they invoke |
+| `config/` | Settings template, plugin list, MCP definitions, `.env.example` |
+| `install.sh`, `install.ps1` | One-command restore on a new machine |
+| `tools/sync.js` | Pull live `~/.claude` config back into the repo, secrets stripped |
+| `tools/scan-secrets.js` | Credential scanner — run before every push |
+
+### Syncing between machines
+
+```bash
+node tools/sync.js          # ~/.claude -> repo (credentials templatized)
+node tools/scan-secrets.js  # gate: non-zero exit if anything leaked
+git add -A && git commit -m "chore: sync claude config" && git push
+```
 
 > Note: Not all platforms support all features. Claude Code gets the full toolkit. Other platforms get the core routing logic + rules adapted to their capabilities.
 

@@ -1,0 +1,22 @@
+# Never commit real credentials — only config/.env.example belongs here.
+.env
+.env.*
+!.env.example
+config/.env
+*.pem
+*.key
+.credentials.json
+
+# Machine-local Claude Code state (never portable)
+.claude/
+backups/
+cache/
+shell-snapshots/
+session-env/
+history.jsonl
+stats-cache.json
+*.local.json
+
+node_modules/
+.DS_Store
+Thumbs.db
